@@ -148,3 +148,16 @@ race_by_city.native_american = pd.to_numeric(race_by_city.native_american, downc
 race_by_city.asian = pd.to_numeric(race_by_city.asian, downcast='float')
 race_by_city.hispanic = pd.to_numeric(race_by_city.hispanic, downcast='float')
 ```
+# Cleaning complete highschool 
+```python
+#removing duplicates
+percentage_complete_highschool.drop_duplicates()
+#see the Nan values of the percentage_complete_highschool DataFrame
+percentage_complete_highschool_miss_values = percentage_complete_highschool.isnull().sum()
+#dropping the rows that have - in their rate
+percentage_complete_highschool = percentage_complete_highschool [percentage_complete_highschool.iloc[:,2] != '-']
+#renaming columns
+percentage_complete_highschool.columns = ['state','city','completed_hs']
+percentage_complete_highschool.city = percentage_complete_highschool.city.str.lower()
+percentage_complete_highschool.completed_hs = pd.to_numeric(percentage_complete_highschool.completed_hs, downcast='float')
+```
