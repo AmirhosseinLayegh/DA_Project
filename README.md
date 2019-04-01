@@ -28,3 +28,7 @@ kill.head(10)
 ```python
 poverty_level.head(10)
 ```
+# Observing the structure of the 'median_house_income' DataFrames
+```python
+median_house_income.head(10)
+```
