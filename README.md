@@ -211,3 +211,12 @@ plt.figure(figsize=(20,10))
 sns.countplot(data=kill, x=kill.state, order=kill['state'].value_counts().index)
 plt.title("Number of police killings, by state", fontsize=27)
 ```
+
+# Age distribution of people murdered by police
+```python
+# General age distribution
+plt.figure(figsize=(15,5))
+age_dist = sns.distplot(kill.age, bins= 40)
+age_dist.set(xlabel='Age',ylabel='Count')
+plt.title('Age distribution',fontsize=18)
+```
