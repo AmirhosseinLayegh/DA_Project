@@ -20,23 +20,23 @@ median_house_income = pd.read_csv("F:\Les\Data analytic\Project\Data/MedianHouse
 race_by_city = pd.read_csv("F:\Les\Data analytic\Project\Data/ShareRaceByCity.csv",encoding='latin-1')
 percentage_complete_highschool = pd.read_csv("F:\Les\Data analytic\Project\Data/PercentOver25CompletedHighSchool.csv",encoding='latin-1')
 ```
-#  The structure of the police killinga DataFrames
+#  The structure of the police killings DataFrames
 ```python
 kill.head(10)
 ```
-#  The structure of the 'poverty_level' DataFrames
+#  The structure of the 'poverty_level' DataFrame
 ```python
 poverty_level.head(10)
 ```
-#  The structure of the 'median_house_income' DataFrames
+#  The structure of the 'median_house_income' DataFrame
 ```python
 median_house_income.head(10)
 ```
-#  The structure of the 'race_by_city' DataFrames
+#  The structure of the 'race_by_city' DataFrame
 ```python
 race_by_city.head(10)
 ```
-# The structure of the 'percentage_complete_highschool' DataFrames
+# The structure of the 'percentage_complete_highschool' DataFrame
 ```python
 percentage_complete_highschool.head(10)
 ```
