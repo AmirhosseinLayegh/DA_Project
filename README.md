@@ -220,3 +220,13 @@ age_dist = sns.distplot(kill.age, bins= 40)
 age_dist.set(xlabel='Age',ylabel='Count')
 plt.title('Age distribution',fontsize=18)
 ```
+# Age distribution of people murdered by race
+```python
+#age distribution by race
+three_races = kill.loc[(kill["race"] == "B") | (kill["race"] == "W") | (kill["race"] == "H")]
+g = sns.FacetGrid(data=three_races, hue="race", aspect=3, size=4)
+g.map(sns.kdeplot, "age", shade=True)
+g.add_legend(title="Race")
+g.set_ylabels("Count")
+plt.title("Age distribution, by race", fontsize=17)
+```
