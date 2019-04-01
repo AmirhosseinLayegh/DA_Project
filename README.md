@@ -20,3 +20,7 @@ median_house_income = pd.read_csv("F:\Les\Data analytic\Project\Data/MedianHouse
 race_by_city = pd.read_csv("F:\Les\Data analytic\Project\Data/ShareRaceByCity.csv",encoding='latin-1')
 percentage_complete_highschool = pd.read_csv("F:\Les\Data analytic\Project\Data/PercentOver25CompletedHighSchool.csv",encoding='latin-1')
 ```
+# Observing the structure of the 'kill' DataFrames
+```python
+kill.head(10)
+```
