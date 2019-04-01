@@ -230,3 +230,9 @@ g.add_legend(title="Race")
 g.set_ylabels("Count")
 plt.title("Age distribution, by race", fontsize=17)
 ```
+
+# Age distribution of people murdered in the states with highest fatalities
+```python
+plt.figure(figsize=(20,10))
+sns.boxplot(x='state', y='age',data=kill, order=['CA','TX','FL','AZ','OH','OK','NC','CO','GA','IL'])
+```
