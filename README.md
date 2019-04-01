@@ -93,9 +93,9 @@ kill.date = pd.to_datetime(kill.date,dayfirst=True) #ensure that date column is 
 # Cleaning poverty level
 ```python
 poverty_level.drop_duplicates() #removing the duplicates
-poverty_level_miss_values = poverty_level.isnull().sum() #see the poverty_level DataFrame attributes that have Nan values
-poverty_level = poverty_level [poverty_level.iloc[:,2] != '-'] #removing rows that have '-' in poverty_rate
-poverty_level.columns= ['state','city','poverty_rate'] #renaming columns 
+poverty_level_miss_values = poverty_level.isnull().sum()#see the poverty_level DataFrame attributes that have Nan values
+poverty_level = poverty_level [poverty_level.iloc[:,2] != '-']#removing rows that have '-' in poverty_rate
+poverty_level.columns= ['state','city','poverty_rate']#renaming columns 
 poverty_level.city = poverty_level.city.str.lower()
-poverty_level.poverty_rate = pd.to_numeric(poverty_level.poverty_rate,downcast='float') #ensure that date column is of float
+poverty_level.poverty_rate = pd.to_numeric(poverty_level.poverty_rate,downcast='float')#ensure that date column is of float
 ```
