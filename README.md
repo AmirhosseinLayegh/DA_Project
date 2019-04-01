@@ -1,11 +1,14 @@
 # DA_Project
+#Importing the libraries we need
 ```python
-for index,row in kill.iterrows():
-    tempcity = row["city"]
-    citysplit = tempcity.split(" ")
-    if(citysplit[-1] == "cdp" or citysplit[-1] == "city" or  citysplit[-1] == "town" or citysplit[-1]=="village"): 
-        del citysplit[-1] 
-    tempstring = " ".join(citysplit)
-    kill.set_value(index,"city",tempstring)
+#importing the libraries that we use in our project
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+import plotly.plotly as py
 
 ```
