@@ -389,3 +389,11 @@ merged_data["asian"] = merged_data["asian"].astype(float)
 merged_data["hispanic"] = merged_data["hispanic"].astype(float)
 merged_data["completed_hs"] = merged_data["completed_hs"].astype(float)
 ```
+```python
+#Creating one-hot encoding
+dumy_var = pd.get_dummies(merged_data[["armed","gender","city","state","threat","mental_illness","body_camera"]],drop_first=True)
+dumy_var = pd.concat([merged_data,dumy_var], axis=1)
+dumy_var.drop(merged_data[["armed","gender","city","state","threat","mental_illness","body_camera","date","manner_of_death","name"]], axis=1, inplace=True)
+dumy_var.dropna()
+dumy_var.head()
+```
