@@ -40,11 +40,51 @@ race_by_city.head(10)
 ```python
 percentage_complete_highschool.head(10)
 ```
-# Removing Duplicates
-```pytho
-kill.drop_duplicates()
-poverty_level.drop_duplicates()
-median_house_income.drop_duplicates()
-race_by_city.drop_duplicates()
-percentage_complete_highschool.drop_duplicates()
+# Cleaning US Police shooting (kill DataFrame)
+```python
+kill.drop_duplicates() #removing duplicates
+kill_miss_values = kill.isnull().sum() #see the kill DataFrame attributes that have Nan values
+kill.armed = kill.armed.fillna('unknown') #filling the armed Nan values by 'unknown'
+kill['age'].fillna((kill['age'].mean()), inplace=True) #filling the age Nan values by the average 
+kill.dropna(subset=['race'],how='all', inplace = True) #drop the rows that have Nan values in 'race' attribute
+kill.drop('flee',axis=1,inplace=True) #droping the 'flee' attribute
+kill['name'].replace(['TK TK'],'Unknown',inplace = True) #Replacing the rows that have 'TK TK' in 'name' attribute bt 'Unknown'
+kill.armed = kill.armed.str.lower() #making the armed column to lower
+kill.armed = kill.armed.mask(kill.armed == 'undetermined','unknown') #replacing undeterminde and unknown weapon by unknown
+kill.armed = kill.armed.mask(kill.armed == 'unknown weapon','unknown')
+kill.armed= kill.armed.mask(kill.armed == 'guns and explosives','gun')#replacing guns and explosives by gun
+kill.armed= kill.armed.mask(kill.armed == 'gun and knife','gun') #replacing gun and knife by gun
+kill.armed= kill.armed.mask(kill.armed == 'hatchet and gun','gun')#replacing hatchet and gun by gun
+kill.armed= kill.armed.mask(kill.armed == 'machete and gun','gun')#replacing machete and gun by gun
+kill.armed = kill.armed.mask(kill.armed == 'sword','knife')
+kill.armed = kill.armed.mask(kill.armed == 'machete','knife')
+kill.armed = kill.armed.mask(kill.armed == 'box cutter','knife')
+kill.armed = kill.armed.mask(kill.armed == 'bayonet','knife')
+kill.armed = kill.armed.mask(kill.armed == 'meat cleaver','knife')
+kill.armed = kill.armed.mask(kill.armed == 'pole and knife','knife')
+kill.armed = kill.armed.mask(kill.armed == 'lawn mower blade','knife')
+kill.armed = kill.armed.mask(kill.armed == 'straight edge razor','knife')
+kill.armed = kill.armed.mask(kill.armed == 'motorcycle','vehicle')
+kill.armed = kill.armed.mask (kill.armed == 'ax','hatchet')
+kill.armed = kill.armed.mask(kill.armed == 'flagpole','metal object')
+kill.armed = kill.armed.mask(kill.armed == 'metal pipe','metal object')
+kill.armed = kill.armed.mask(kill.armed == 'metal hand tool','metal object')
+kill.armed = kill.armed.mask(kill.armed == 'metal pole','metal object')
+kill.armed = kill.armed.mask(kill.armed == 'metal stick','metal object')
+kill.armed = kill.armed.mask(kill.armed == 'brick','blunt object')
+kill.armed = kill.armed.mask(kill.armed == 'baseball bat','blunt object')
+kill.armed = kill.armed.mask(kill.armed == 'pole','blunt object')
+kill.armed = kill.armed.mask(kill.armed == 'rock','blunt object')
+kill.armed = kill.armed.mask(kill.armed == 'piece of wood','blunt object')
+kill.armed = kill.armed.mask(kill.armed == 'baton','blunt object')
+kill.armed = kill.armed.mask(kill.armed == 'oar','blunt object')
+kill.armed = kill.armed.mask(kill.armed == 'baseball bat and fireplace poker','blunt object')
+kill.armed = kill.armed.mask(kill.armed == 'hammer','blunt object')
+kill.armed = kill.armed.mask(kill.armed == 'baseball bat and bottle','blunt object')
+kill.armed = kill.armed.mask(kill.armed == 'pipe','blunt object')
+kill.drop('id',axis=1,inplace=True) #dropping the id attribute
+kill.columns =[ 'name','date','manner_of_death','armed','age','gender','race','city','state','mental_illness','threat',
+               'body_camera'] #renaming the kill DataFrame column
+kill.city = kill.city.str.lower() #making city to lowercase
+kill.date = pd.to_datetime(kill.date,dayfirst=True) #ensure that date column is of date type
 ```
