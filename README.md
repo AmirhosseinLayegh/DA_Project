@@ -253,3 +253,18 @@ plt.figure(figsize=(15,10))
 g=sns.barplot(x=area_list,y=data_poverty_level.poverty_rate,data=data_poverty_level)
 g.set(xlim=(0, 19)) #to see the top20
 ```
+# States with the lowest high school completion rate
+```python
+highschool_ratio=[]
+#calculate highschool rate for each state
+for i in area_list:
+    x = percentage_complete_highschool[percentage_complete_highschool['state']==i]
+    complete_rate = sum(x.completed_hs)/len(x)
+    highschool_ratio.append(complete_rate)
+HS_Ratio = pd.DataFrame({'area_list': area_list , 'HighSchool_Rate': highschool_ratio})
+HS_Ratio_index = (HS_Ratio['HighSchool_Rate'].sort_values(ascending = True )).index.values
+sorted_HS_Ratio = HS_Ratio.reindex(HS_Ratio_index)
+plt.figure(figsize=(15,10))
+g=sns.barplot(x=sorted_HS_Ratio.area_list,y=sorted_HS_Ratio.HighSchool_Rate,data=sorted_HS_Ratio)
+g.set(xlim=(0, 19)) #getting the top20
+```
