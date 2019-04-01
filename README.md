@@ -28,15 +28,15 @@ kill.head(10)
 ```python
 poverty_level.head(10)
 ```
-# Observing the structure of the 'median_house_income' DataFrames
+#  The structure of the 'median_house_income' DataFrames
 ```python
 median_house_income.head(10)
 ```
-# Observing the structure of the 'race_by_city' DataFrames
+#  The structure of the 'race_by_city' DataFrames
 ```python
 race_by_city.head(10)
 ```
-# Observing the structure of the 'percentage_complete_highschool' DataFrames
+# The structure of the 'percentage_complete_highschool' DataFrames
 ```python
 percentage_complete_highschool.head(10)
 ```
