@@ -374,3 +374,18 @@ merge_c = pd.merge(merge_b, percentage_complete_highschool, on=[ "city", "state"
 
 merged_data = pd.merge(kill, merge_c, on=["city", "state"], how="inner")
 ```
+```python
+# removing any missing values encoded as X or - from merged data
+merged_data[["median_income","poverty_rate", "white", "black", "native_american", "asian" ,"hispanic", "completed_hs"]]=merged_data[["median_income","poverty_rate", "white", "black", "native_american", "asian" ,"hispanic", "completed_hs"]].replace("(X)", np.NaN)
+merged_data[["median_income","poverty_rate", "white", "black", "native_american", "asian" ,"hispanic", "completed_hs"]]=merged_data[["median_income","poverty_rate", "white", "black", "native_american", "asian" ,"hispanic", "completed_hs"]].replace("-", np.NaN)
+merged_data[["median_income","poverty_rate", "white", "black", "native_american", "asian" ,"hispanic", "completed_hs"]]=merged_data[["median_income","poverty_rate", "white", "black", "native_american", "asian" ,"hispanic", "completed_hs"]].astype(float)
+#checking dataTypes
+merged_data["median_income"] = merged_data["median_income"].astype(float)
+merged_data["poverty_rate"] = merged_data["poverty_rate"].astype(float)
+merged_data["white"] = merged_data["white"].astype(float)
+merged_data["black"] = merged_data["black"].astype(float)
+merged_data["native_american"] = merged_data["native_american"].astype(float)
+merged_data["asian"] = merged_data["asian"].astype(float)
+merged_data["hispanic"] = merged_data["hispanic"].astype(float)
+merged_data["completed_hs"] = merged_data["completed_hs"].astype(float)
+```
