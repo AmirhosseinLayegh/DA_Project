@@ -302,3 +302,27 @@ sns.barplot(armed[:7].index,armed[:7].values)
 plt.figure(figsize=(20,10))
 sns.countplot(data=kill, x='mental_illness')
 ```
+# visualise the race distribution in each state
+```python
+area_list = list(race_by_city['state'].unique())
+white=[]
+black=[]
+native_american=[]
+asian=[]
+hispanic=[]
+for i in area_list:
+    x=race_by_city[race_by_city["state"]==i]
+    white.append(sum(x.white)/len(x))
+    black.append(sum(x.black)/len(x))
+    native_american.append(sum(x.native_american)/len(x))
+    asian.append(sum(x.asian)/len(x))
+    hispanic.append(sum(x.hispanic)/len(x))
+f,ax=plt.subplots(figsize=(15,10))
+sns.barplot(x=white,y=area_list,color="#8c001a", alpha=0.9,label="Whites")
+sns.barplot(x=black,y=area_list, color= "#00fdd1", alpha=0.9, label="Blacks")
+sns.barplot(x=native_american,y=area_list, color= "#2701d5", alpha=0.9, label="Native Americans")
+sns.barplot(x=asian,y=area_list, color="#ffd62a", alpha=0.9, label="Asians")
+sns.barplot(x=hispanic,y=area_list, color="#46a346", alpha=0.9, label="Hispanics")
+
+ax.legend(ncol=2,loc="upper right",frameon=True)    
+```
