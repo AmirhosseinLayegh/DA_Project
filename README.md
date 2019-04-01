@@ -97,7 +97,7 @@ poverty_level_miss_values = poverty_level.isnull().sum()#see the poverty_level D
 poverty_level = poverty_level [poverty_level.iloc[:,2] != '-']#removing rows that have '-' in poverty_rate
 poverty_level.columns= ['state','city','poverty_rate']#renaming columns 
 poverty_level.city = poverty_level.city.str.lower()
-poverty_level.poverty_rate = pd.to_numeric(poverty_level.poverty_rate,downcast='float')#ensure that date column is of float
+poverty_level.poverty_rate = pd.to_numeric(poverty_level.poverty_rate,downcast='float')#ensure that poverty rate column is of float
 ```
 # poverty level after cleaning
 
@@ -119,4 +119,32 @@ median_house_income.columns = ['state','city','median_income']
 #make the city column to lower
 median_house_income.city = median_house_income.city.str.lower()
 median_house_income.median_income = pd.to_numeric(median_house_income.median_income,downcast='float')
+```
+# Cleaning race by city
+```python
+#removing duplicates
+race_by_city.drop_duplicates()
+#see the Nan values of the race_by_city DataFrame
+race_by_city_miss_values = race_by_city.isnull().sum()
+#replacing (X) values in race columns
+race_by_city = race_by_city [race_by_city.iloc[:,2] != '(X)']
+race_by_city = race_by_city [race_by_city.iloc[:,3] != '(X)']
+race_by_city = race_by_city [race_by_city.iloc[:,4] != '(X)']
+race_by_city = race_by_city [race_by_city.iloc[:,5] != '(X)']
+race_by_city = race_by_city [race_by_city.iloc[:,6] != '(X)']
+#replacing - values in race columns
+race_by_city = race_by_city [race_by_city.iloc[:,2] != '-']
+race_by_city = race_by_city [race_by_city.iloc[:,3] != '-']
+race_by_city = race_by_city [race_by_city.iloc[:,4] != '-']
+race_by_city = race_by_city [race_by_city.iloc[:,5] != '-']
+race_by_city = race_by_city [race_by_city.iloc[:,6] != '-']
+#renaming columns
+race_by_city.columns= ['state','city','white','black','native_american','asian','hispanic']
+race_by_city.city = race_by_city.city.str.lower()
+#ensure that race percentage column is of float
+race_by_city.white = pd.to_numeric(race_by_city.white, downcast='float')
+race_by_city.black = pd.to_numeric(race_by_city.black, downcast='float')
+race_by_city.native_american = pd.to_numeric(race_by_city.native_american, downcast='float')
+race_by_city.asian = pd.to_numeric(race_by_city.asian, downcast='float')
+race_by_city.hispanic = pd.to_numeric(race_by_city.hispanic, downcast='float')
 ```
