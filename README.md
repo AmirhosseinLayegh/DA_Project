@@ -24,3 +24,7 @@ percentage_complete_highschool = pd.read_csv("F:\Les\Data analytic\Project\Data/
 ```python
 kill.head(10)
 ```
+# Observing the structure of the 'poverty_level' DataFrames
+```python
+poverty_level.head(10)
+```
