@@ -291,3 +291,9 @@ sorted_HS_Ratio = HS_Ratio.reindex(HS_Ratio_index)
 data=pd.concat([sorted_poverty_ratio,sorted_HS_Ratio["HighSchool_Rate"]],axis=1)
 g = sns.jointplot(data.poverty_rate, data.HighSchool_Rate, kind="reg", size=7)
 ```
+# How the victims were armed
+```python
+armed=kill.armed.value_counts()
+plt.figure(figsize=(10,7))
+sns.barplot(armed[:7].index,armed[:7].values)
+```
