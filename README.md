@@ -20,11 +20,11 @@ median_house_income = pd.read_csv("F:\Les\Data analytic\Project\Data/MedianHouse
 race_by_city = pd.read_csv("F:\Les\Data analytic\Project\Data/ShareRaceByCity.csv",encoding='latin-1')
 percentage_complete_highschool = pd.read_csv("F:\Les\Data analytic\Project\Data/PercentOver25CompletedHighSchool.csv",encoding='latin-1')
 ```
-# Observing the structure of the 'kill' DataFrames
+#  The structure of the police killinga DataFrames
 ```python
 kill.head(10)
 ```
-# Observing the structure of the 'poverty_level' DataFrames
+#  The structure of the 'poverty_level' DataFrames
 ```python
 poverty_level.head(10)
 ```
@@ -88,4 +88,4 @@ kill.columns =[ 'name','date','manner_of_death','armed','age','gender','race','c
 kill.city = kill.city.str.lower() #making city to lowercase
 kill.date = pd.to_datetime(kill.date,dayfirst=True) #ensure that date column is of date type
 ```
-# kill after cleaning
+# Police killings after cleaning
