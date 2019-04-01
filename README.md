@@ -236,3 +236,20 @@ plt.title("Age distribution, by race", fontsize=17)
 plt.figure(figsize=(20,10))
 sns.boxplot(x='state', y='age',data=kill, order=['CA','TX','FL','AZ','OH','OK','NC','CO','GA','IL'])
 ```
+# States with the highest poverty rate
+```python
+area_list = list(poverty_level['state'].unique())
+poverty_ratio=[]
+#calculate the eaverage rate for each city in terms of their cities
+for i in area_list: 
+    x=poverty_level[poverty_level['state']== i]
+    area_poverty_rate= sum(x.poverty_rate)/len(x)
+    poverty_ratio.append(area_poverty_rate)
+data_poverty_level = pd.DataFrame({'area_list': area_list , 'poverty_rate':poverty_ratio})
+poverty_level_index = (data_poverty_level['poverty_rate'].sort_values(ascending = False )).index.values
+data_poverty_level = data_poverty_level.reindex(poverty_level_index)
+data_poverty_level.head(10)
+plt.figure(figsize=(15,10))
+g=sns.barplot(x=area_list,y=data_poverty_level.poverty_rate,data=data_poverty_level)
+g.set(xlim=(0, 19)) #to see the top20
+```
