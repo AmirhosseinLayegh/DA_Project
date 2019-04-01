@@ -363,7 +363,7 @@ for index,row in race_by_city.iterrows():
         del citysplit[-1] 
     tempstring = " ".join(citysplit)
     race_by_city.set_value(index,"city",tempstring)   
-    ```
+ ```
 # Merging DataFrames
 ```python
 merge_a = pd.merge(race_by_city, poverty_level, on=["city", "state"], how="inner")
