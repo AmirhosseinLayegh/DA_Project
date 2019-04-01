@@ -50,12 +50,12 @@ kill.dropna(subset=['race'],how='all', inplace = True) #drop the rows that have 
 kill.drop('flee',axis=1,inplace=True) #droping the 'flee' attribute
 kill['name'].replace(['TK TK'],'Unknown',inplace = True) #Replacing the rows that have 'TK TK' in 'name' attribute bt 'Unknown'
 kill.armed = kill.armed.str.lower() #making the armed column to lower
-kill.armed = kill.armed.mask(kill.armed == 'undetermined','unknown') #replacing undeterminde and unknown weapon by unknown
+kill.armed = kill.armed.mask(kill.armed == 'undetermined','unknown') #replacing variations with uniform values
 kill.armed = kill.armed.mask(kill.armed == 'unknown weapon','unknown')
-kill.armed= kill.armed.mask(kill.armed == 'guns and explosives','gun')#replacing guns and explosives by gun
-kill.armed= kill.armed.mask(kill.armed == 'gun and knife','gun') #replacing gun and knife by gun
-kill.armed= kill.armed.mask(kill.armed == 'hatchet and gun','gun')#replacing hatchet and gun by gun
-kill.armed= kill.armed.mask(kill.armed == 'machete and gun','gun')#replacing machete and gun by gun
+kill.armed= kill.armed.mask(kill.armed == 'guns and explosives','gun')
+kill.armed= kill.armed.mask(kill.armed == 'gun and knife','gun') 
+kill.armed= kill.armed.mask(kill.armed == 'hatchet and gun','gun')
+kill.armed= kill.armed.mask(kill.armed == 'machete and gun','gun')
 kill.armed = kill.armed.mask(kill.armed == 'sword','knife')
 kill.armed = kill.armed.mask(kill.armed == 'machete','knife')
 kill.armed = kill.armed.mask(kill.armed == 'box cutter','knife')
