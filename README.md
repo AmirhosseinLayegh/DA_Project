@@ -297,3 +297,6 @@ armed=kill.armed.value_counts()
 plt.figure(figsize=(10,7))
 sns.barplot(armed[:7].index,armed[:7].values)
 ```
+# The mental situation
+plt.figure(figsize=(20,10))
+sns.countplot(data=kill, x='mental_illness')
