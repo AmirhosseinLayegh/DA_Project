@@ -88,3 +88,4 @@ kill.columns =[ 'name','date','manner_of_death','armed','age','gender','race','c
 kill.city = kill.city.str.lower() #making city to lowercase
 kill.date = pd.to_datetime(kill.date,dayfirst=True) #ensure that date column is of date type
 ```
+# kill after cleaning
