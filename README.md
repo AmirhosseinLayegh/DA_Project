@@ -36,3 +36,15 @@ median_house_income.head(10)
 ```python
 race_by_city.head(10)
 ```
+# Observing the structure of the 'percentage_complete_highschool' DataFrames
+```python
+percentage_complete_highschool.head(10)
+```
+# Removing Duplicates
+```pytho
+kill.drop_duplicates()
+poverty_level.drop_duplicates()
+median_house_income.drop_duplicates()
+race_by_city.drop_duplicates()
+percentage_complete_highschool.drop_duplicates()
+```
