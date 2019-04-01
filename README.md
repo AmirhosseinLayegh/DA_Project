@@ -205,3 +205,9 @@ for i in race_list:
 plt.figure(figsize=(14,6))
 sns.barplot(x=race_list, y=proportion_killed_perrace)        
 ```
+# Number of People killed by state
+```python
+plt.figure(figsize=(20,10))
+sns.countplot(data=kill, x=kill.state, order=kill['state'].value_counts().index)
+plt.title("Number of police killings, by state", fontsize=27)
+```
