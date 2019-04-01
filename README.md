@@ -161,3 +161,10 @@ percentage_complete_highschool.columns = ['state','city','completed_hs']
 percentage_complete_highschool.city = percentage_complete_highschool.city.str.lower()
 percentage_complete_highschool.completed_hs = pd.to_numeric(percentage_complete_highschool.completed_hs, downcast='float')
 ```
+# People killed by race 
+```python
+#showing the total number of people killed by race
+plt.figure(figsize=(15,5))
+sns.countplot(data=kill, x='race')
+plt.title('Total number of people killed, by race',fontsize=18)
+```
