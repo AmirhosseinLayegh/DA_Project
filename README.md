@@ -104,11 +104,14 @@ poverty_level.poverty_rate = pd.to_numeric(poverty_level.poverty_rate,downcast='
 # Cleaning median house income
 ```python
 median_house_income.drop_duplicates() #removing duplicates
-median_house_income_miss_values = median_house_income.isnull().sum()#see the Nan values of the median_house_income DataFrame
-median_house_income.dropna(subset=['Median Income'],how='all', inplace = True) #dropping the rows that have Nan values in median income
+median_house_income_miss_values = median_house_income.isnull().sum()
+#see the Nan values of the median_house_income DataFrame
+median_house_income.dropna(subset=['Median Income'],how='all', inplace = True)
+#dropping the rows that have Nan values in median income
 median_house_income = median_house_income [median_house_income.iloc[:,2] != '(X)'] #drop (X) and '-' values
 median_house_income = median_house_income [median_house_income.iloc[:,2] != '-']
-median_house_income.iloc[:,2] = median_house_income.iloc[:,2].replace('2,500-',2500) #replacing median income which is -2500 with 2500
+median_house_income.iloc[:,2] = median_house_income.iloc[:,2].replace('2,500-',2500) 
+#replacing median income which is -2500 with 2500
 median_house_income.iloc[:,2] = median_house_income.iloc[:,2].replace('250,000+',250000)
 median_house_income.columns = ['state','city','median_income'] #Rename columns
 median_house_income.city = median_house_income.city.str.lower()
