@@ -32,3 +32,7 @@ poverty_level.head(10)
 ```python
 median_house_income.head(10)
 ```
+# Observing the structure of the 'race_by_city' DataFrames
+```python
+race_by_city.head(10)
+```
