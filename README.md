@@ -168,3 +168,40 @@ plt.figure(figsize=(15,5))
 sns.countplot(data=kill, x='race')
 plt.title('Total number of people killed, by race',fontsize=18)
 ```
+# People killed as a proportion of their race
+```python
+# showing the number of people killed as a proportion of their respective race
+race_list = ["A", "B", "H", "N", "O", "W"]
+killed_perrace = []
+
+for i in race_list:
+    killings_c = kill.race.loc[(kill.race==i)].count()
+    killed_perrace.append(killings_c)
+    
+print (killed_perrace) #showing killed people for each races
+proportion_killed_perrace = []
+
+for i in race_list:
+    if i == "A":
+        proportion_killings_c = killed_perrace[0]/14674252.0
+        print (proportion_killings_c)
+    elif i == "B":
+        proportion_killings_c = killed_perrace[1]/38929319.0
+        print (proportion_killings_c)
+    elif i == "H":
+        proportion_killings_c = killed_perrace[2]/50477594.0
+        print (proportion_killings_c)
+    elif i == "N":
+        proportion_killings_c = killed_perrace[3]/2932248.0
+        print (proportion_killings_c)
+    elif i == "O":
+        proportion_killings_c = killed_perrace[4]/22579629.0
+        print (proportion_killings_c)
+    else:
+        proportion_killings_c = killed_perrace[5]/223553265.0
+        print (proportion_killings_c)
+        
+    proportion_killed_perrace.append(proportion_killings_c)
+plt.figure(figsize=(14,6))
+sns.barplot(x=race_list, y=proportion_killed_perrace)        
+```
