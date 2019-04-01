@@ -268,3 +268,26 @@ plt.figure(figsize=(15,10))
 g=sns.barplot(x=sorted_HS_Ratio.area_list,y=sorted_HS_Ratio.HighSchool_Rate,data=sorted_HS_Ratio)
 g.set(xlim=(0, 19)) #getting the top20
 ```
+# Correlation between poverty and highschool graduation rates
+```python
+area_list = list(poverty_level['state'].unique())
+poverty_ratio=[]
+for i in area_list:
+    x=poverty_level[poverty_level['state']== i]
+    area_poverty_rate= sum(x.poverty_rate)/len(x)
+    poverty_ratio.append(area_poverty_rate)
+data_poverty_ratio = pd.DataFrame({'area_list': area_list , 'poverty_rate':poverty_ratio})
+poverty_ratio_index=(data_poverty_ratio['poverty_rate'].sort_values(ascending=False)).index.values
+sorted_poverty_ratio = data_poverty_ratio.reindex(poverty_ratio_index)
+
+highschool_ratio=[]
+for i in area_list:
+    x = percentage_complete_highschool[percentage_complete_highschool['state']==i]
+    complete_rate = sum(x.completed_hs)/len(x)
+    highschool_ratio.append(complete_rate)
+HS_Ratio = pd.DataFrame({'area_list': area_list , 'HighSchool_Rate': highschool_ratio})
+HS_Ratio_index = (HS_Ratio['HighSchool_Rate'].sort_values(ascending = False )).index.values
+sorted_HS_Ratio = HS_Ratio.reindex(HS_Ratio_index)
+data=pd.concat([sorted_poverty_ratio,sorted_HS_Ratio["HighSchool_Rate"]],axis=1)
+g = sns.jointplot(data.poverty_rate, data.HighSchool_Rate, kind="reg", size=7)
+```
