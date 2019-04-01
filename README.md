@@ -326,3 +326,42 @@ sns.barplot(x=hispanic,y=area_list, color="#46a346", alpha=0.9, label="Hispanics
 
 ax.legend(ncol=2,loc="upper right",frameon=True)    
 ```
+# Modeling
+
+# Removing prefix for each city name
+```python
+#removing 'cdp' and 'city' and 'town' and 'village' from the end of each city name
+for index,row in poverty_level.iterrows():
+    tempcity = row["city"]
+    citysplit = tempcity.split(" ")
+    if(citysplit[-1] == "cdp" or citysplit[-1] == "city" or  citysplit[-1] == "town" or citysplit[-1]=="village"): 
+        del citysplit[-1] 
+    tempstring = " ".join(citysplit)
+    poverty_level.set_value(index,"city",tempstring)
+
+    
+for index,row in median_house_income.iterrows():
+    tempcity = row["city"]
+    citysplit = tempcity.split(" ")
+    if(citysplit[-1] == "cdp" or citysplit[-1] == "city" or  citysplit[-1] == "town" or citysplit[-1]=="village"): 
+        del citysplit[-1] 
+    tempstring = " ".join(citysplit)
+    median_house_income.set_value(index,"city",tempstring)
+    
+for index,row in percentage_complete_highschool.iterrows():
+    tempcity = row["city"]
+    citysplit = tempcity.split(" ")
+    if(citysplit[-1] == "cdp" or citysplit[-1] == "city" or  citysplit[-1] == "town" or citysplit[-1]=="village"): 
+        del citysplit[-1] 
+    tempstring = " ".join(citysplit)
+    percentage_complete_highschool.set_value(index,"city",tempstring)
+    
+for index,row in race_by_city.iterrows():
+    tempcity = row["city"]
+    citysplit = tempcity.split(" ")
+    if(citysplit[-1] == "cdp" or citysplit[-1] == "city" or  citysplit[-1] == "town" or citysplit[-1]=="village"): 
+        del citysplit[-1] 
+    tempstring = " ".join(citysplit)
+    race_by_city.set_value(index,"city",tempstring)
+
+```
