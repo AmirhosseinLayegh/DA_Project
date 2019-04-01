@@ -99,3 +99,4 @@ poverty_level.columns= ['state','city','poverty_rate']#renaming columns
 poverty_level.city = poverty_level.city.str.lower()
 poverty_level.poverty_rate = pd.to_numeric(poverty_level.poverty_rate,downcast='float')#ensure that date column is of float
 ```
+# poverty level after cleaning
