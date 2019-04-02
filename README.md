@@ -397,3 +397,12 @@ dumy_var.drop(merged_data[["armed","gender","city","state","threat","mental_illn
 dumy_var.dropna()
 dumy_var.head()
 ```
+# Logistic Regression
+# Importing Libraries
+```python
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import classification_report, confusion_matrix
+from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.preprocessing import LabelEncoder
+```
