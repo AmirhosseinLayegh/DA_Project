@@ -426,3 +426,14 @@ from sklearn.metrics import accuracy_score
 logistic_accuracy_score = accuracy_score(y_test, predictions)
 logistic_accuracy_score
 ```
+```python
+#get the accuracy score
+from sklearn.metrics import accuracy_score
+logistic_accuracy_score = accuracy_score(y_test, predictions)
+logistic_accuracy_score
+#Apply GridSearchCV
+from sklearn import model_selection
+parameters = {"max_iter": [20,30,50], "C": [1.0, 2.0, 3.0]}
+gs_logisticmodel = model_selection.GridSearchCV(estimator=logisticmodel, param_grid=parameters, cv=5, scoring="accuracy")
+gs_logisticmodel.fit(x_train, y_train)
+```
