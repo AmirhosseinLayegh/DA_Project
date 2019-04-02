@@ -437,3 +437,10 @@ parameters = {"max_iter": [20,30,50], "C": [1.0, 2.0, 3.0]}
 gs_logisticmodel = model_selection.GridSearchCV(estimator=logisticmodel, param_grid=parameters, cv=5, scoring="accuracy")
 gs_logisticmodel.fit(x_train, y_train)
 ```
+```python
+#Get the best parameters 
+gs_logisticmodel.best_params_
+#Get the accuracy of the model
+gs_logisticmodel_accuracy_score = gs_logisticmodel.best_score_
+gs_logisticmodel_accuracy_score
+```
