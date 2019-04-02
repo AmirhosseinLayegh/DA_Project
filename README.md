@@ -567,3 +567,19 @@ print(classification_report(y_test, rfc_model_pred))
 rfc_model_accuracy_score = accuracy_score(y_test, rfc_model_pred)
 rfc_model_accuracy_score
 ```
+```python
+#Apply GridSearchCV
+
+params = {"max_depth": [32,44,50],"n_estimators": [15,18,26,32],"min_samples_leaf": [40,50,60],"criterion": ["gini", "entropy"]}
+
+gs_rfc_model = model_selection.GridSearchCV(estimator=rfc_model,param_grid=params,cv=5,scoring="accuracy")
+
+gs_rfc_model.fit(X_train, y_train)
+# the best parameters
+
+gs_rfc_model.best_params_
+# Get the accuracy score 
+
+gs_rfc_model_accuracy_score = gs_rfc_model.best_score_ 
+gs_rfc_model_accuracy_score
+```
