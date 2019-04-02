@@ -499,3 +499,27 @@ predictions = knn_model.predict(x_test)
 
 print(classification_report(y_test, predictions))
 ```
+```python
+#Getting the accuracy of our knn model
+
+knn_accuracy_score_iteration = accuracy_score(y_test, predictions)
+knn_accuracy_score_iteration
+```
+```python
+#Accuracy score comparaison between the 2 models before and after Grid Search
+
+pre_accuracy = {"Log Regression" : logistic_accuracy_score, "KNN": knn_accuracy_score}
+
+
+post_accuracy = {"Log Regression" : gs_logisticmodel_accuracy_score, "KNN": knn_accuracy_score_iteration}
+
+x = np.arange(len(pre_accuracy))
+ax = plt.subplot(111)
+ax.bar(x, pre_accuracy.values(), width=0.2, color='r')
+ax.bar(x-0.2,post_accuracy.values(),width=0.2, color='b')
+ax.legend(('before','after'))
+plt.xticks(x,pre_accuracy.keys())
+
+plt.title("Accuracy scores comparaison")
+plt.show()
+```
