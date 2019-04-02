@@ -415,3 +415,14 @@ x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_
 logisticmodel = LogisticRegression()
 logisticmodel.fit(x_train, y_train)
 ```
+```python
+#predict the values based on the test values
+predictions = logisticmodel.predict(x_test)
+print (classification_report (y_test, predictions))
+```
+```python
+#get the accuracy score
+from sklearn.metrics import accuracy_score
+logistic_accuracy_score = accuracy_score(y_test, predictions)
+logistic_accuracy_score
+```
