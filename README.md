@@ -472,3 +472,30 @@ print(classification_report(y_test, predictions))
 knn_accuracy_score = accuracy_score(y_test, predictions)
 knn_accuracy_score
 ```
+```python
+#calculating the errors for a range of k={1,30}
+
+error = []
+
+for i in range(1,30):
+    knn_model = KNeighborsClassifier(n_neighbors=i)
+    knn_model.fit(x_train, y_train)
+    i_predictions = knn_model.predict(x_test)
+    error.append(np.mean(i_predictions != y_test))
+    
+#plotting knn errors per k values 
+plt.figure(figsize=(15,10))
+plt.plot(range(1,30),error,color="blue", marker="x")
+plt.title(" Error per K values")
+plt.xlabel("k")
+plt.ylabel("Error")
+
+#setting k = 12
+#printing the predictions report
+
+knn_model = KNeighborsClassifier(n_neighbors=12)
+knn_model.fit(x_train, y_train)
+predictions = knn_model.predict(x_test)
+
+print(classification_report(y_test, predictions))
+```
