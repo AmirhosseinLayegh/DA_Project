@@ -444,3 +444,11 @@ gs_logisticmodel.best_params_
 gs_logisticmodel_accuracy_score = gs_logisticmodel.best_score_
 gs_logisticmodel_accuracy_score
 ```
+# Plot the confusion Matrix
+```python
+import seaborn as sns; sns.set()
+confmat = confusion_matrix(y_test, predictions)
+sns.heatmap(confmat.T, square=True, annot=True, fmt='d', cbar=False)
+plt.xlabel('True label')
+plt.ylabel('Pred label')
+```
