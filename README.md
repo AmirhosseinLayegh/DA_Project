@@ -523,3 +523,30 @@ plt.xticks(x,pre_accuracy.keys())
 plt.title("Accuracy scores comparaison")
 plt.show()
 ```
+# Random Forest
+```python
+#True / false to 1/0 
+#Using Label ecoder for categorical data
+
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.preprocessing import LabelEncoder
+from sklearn.metrics import accuracy_score
+
+merged_data["mental_illness"] = merged_data["mental_illness"].astype(int)
+merged_data["body_camera"] = kill["body_camera"].astype(int)
+
+le = LabelEncoder()
+le.fit(["armed", "race", "gender", "city", "state", "threat"])
+
+#setting our variables 
+
+X = merged_data_log
+y = merged_data_log["race"]
+X.drop(["race", "date"], axis=1, inplace=True)
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=101)
+# Fitting our classifier
+
+rfc_model = RandomForestClassifier()
+rfc_model.fit(X_train, y_train)
+```
