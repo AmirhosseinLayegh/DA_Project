@@ -550,3 +550,20 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_
 rfc_model = RandomForestClassifier()
 rfc_model.fit(X_train, y_train)
 ```
+```python
+#Getting our predictions
+
+rfc_model_pred = rfc_model.predict(X_test)
+rfc_model.feature_importances_
+#Listing our feature importance
+
+features = pd.DataFrame({"feature_name": merged_data_log.columns, "feature_importance": rfc_model.feature_importances_}) 
+features
+#Print the classification report
+
+print(classification_report(y_test, rfc_model_pred))
+#Get the accuracy score
+
+rfc_model_accuracy_score = accuracy_score(y_test, rfc_model_pred)
+rfc_model_accuracy_score
+```
