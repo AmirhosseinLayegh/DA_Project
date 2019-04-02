@@ -583,3 +583,28 @@ gs_rfc_model.best_params_
 gs_rfc_model_accuracy_score = gs_rfc_model.best_score_ 
 gs_rfc_model_accuracy_score
 ```
+```python
+#Confusion Matrix
+
+mat = confusion_matrix(y_test, rfc_model_pred)
+sns.heatmap(mat.T, square=True, annot=True, fmt='d', cbar=False)
+plt.xlabel('true label')
+plt.ylabel('predicted label');
+```
+# Accuracy score comparaison between all 3 models before and after Grid Search 
+```python
+pre_accuracy = {"Random Forest": rfc_model_accuracy_score,"Log Regression" : logistic_accuracy_score, "KNN": knn_accuracy_score}
+
+
+post_accuracy = {"Random Forest": gs_rfc_model_accuracy_score,"Log Regression" : gs_logisticmodel_accuracy_score, "KNN": knn_accuracy_score_iteration}
+
+x = np.arange(len(pre_accuracy))
+ax = plt.subplot(111)
+ax.bar(x, pre_accuracy.values(), width=0.2, color='r')
+ax.bar(x-0.2,post_accuracy.values(),width=0.2, color='b')
+ax.legend(('before','after'))
+plt.xticks(x,pre_accuracy.keys())
+
+plt.title("Accuracy scores comparaison")
+plt.show()
+```
