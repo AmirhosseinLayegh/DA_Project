@@ -452,3 +452,23 @@ sns.heatmap(confmat.T, square=True, annot=True, fmt='d', cbar=False)
 plt.xlabel('True label')
 plt.ylabel('Pred label')
 ```
+# KNN
+```python
+#setting our variables 
+
+from sklearn.neighbors import KNeighborsClassifier
+x = dumy_var.drop("race", axis=1)
+y = dumy_var["race"]
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=101)
+knn_model = KNeighborsClassifier(n_neighbors=1)
+knn_model.fit(x_train, y_train)
+
+#get the prediction and print the report
+
+predictions = knn_model.predict(x_test)
+print(classification_report(y_test, predictions))
+#Get the accuracy score of the knn model
+
+knn_accuracy_score = accuracy_score(y_test, predictions)
+knn_accuracy_score
+```
