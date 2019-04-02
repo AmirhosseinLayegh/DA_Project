@@ -406,3 +406,12 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import LabelEncoder
 ```
+```python
+# Define x and y vaeriables
+# fitting our model
+x = dumy_var.drop("race", axis=1)
+y = dumy_var["race"]
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=101)
+logisticmodel = LogisticRegression()
+logisticmodel.fit(x_train, y_train)
+```
